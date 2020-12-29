@@ -31,7 +31,7 @@ from tensorflow.python.keras.callbacks import ModelCheckpoint
 
 ### COLAB을 이용한 이미지 전처리
 
-```
+```PYTHON
     import os # miscellaneous operating system interfaces
     import shutil # high-level file operations
 
@@ -66,7 +66,7 @@ tf.keras.preprocessing.image_dataset_from_directory를 이용,
 
 ### 모델 생성
 
-```
+```PYTHON
 categories = ["food", "interior", "exterior"]
     with tf.device('/device:GPU:0'):
         model = Sequential([
@@ -100,3 +100,11 @@ categories = ["food", "interior", "exterior"]
     print("train loss=", history.history['loss'][-1])
     print("validation loss=", history.history['val_loss'][-1])
 ```
+COLAB에 GPU를 사용하여 데이터처리를 빠르게 하기위하여 사용.
+CPU보다 CPU가 12배 정도의 속도가 이루어진다는 이야기 있음.
+RESCALING의 경우 이미지 파일이 0~1사이의 값을 가지는것이 LOSS가 줄어드는 방법이라 이용.
+3번의 CONV, MAXPOOLING의 과정을 거치며 저장됨.
+history를 moddelfit할때 저장하며 epochs를 20으로 줘 정확도를 높인다. 
+colab의 경우 한 번 epoch을 돌린 후 부터는 진행속도가 매우 빨라지는 장점이 있음.
+
+
