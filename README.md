@@ -5,8 +5,11 @@
 
 ### 전제조건
 >소스파일 위치에 images 폴더가 있어야함.
+
 >colab을 사용하고 이미지 파일의 경우 구글드라이브에서 마운트 하므로 파일이 구글드라이브에 올라가있어야함.
+
 >google drive에서 colab으로 마운트 하는과정은 인터넷을 참조 바람.
+
 >tf.keras.preprocessing.image_dataset_from_directory를 사용하기 위해 카테고리 별로 파일이 나눠져 있어야함 ex) images안 폴더 명 : 음식 실내 실외
 
 
