@@ -11,7 +11,7 @@
 >google drive에서 colab으로 마운트 하는과정은 인터넷을 참조 바람.
 
 >tf.keras.preprocessing.image_dataset_from_directory를 사용하기 위해 카테고리 별로 파일이 나눠져 있어야함 
->>ex) images안 폴더 명 : 음식 실내 실외
+>>ex) images안 폴더 명 : food interior exterior
 
 
 ### 라이브러리 import
