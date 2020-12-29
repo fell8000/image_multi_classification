@@ -152,7 +152,7 @@ def plot_loss_curve(history):
 
 ```PYTHON
 #모델 로드
-    model=load_model('./model-201711299')
+    model=load_model('./model')
         
 
 
