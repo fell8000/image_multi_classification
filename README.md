@@ -243,7 +243,7 @@ def predict_image_sample(model, val_ds,num=-1):
         
         y_pred = result[i]
         print(y_pred)
-        y_pred = np.argmax(y_pred, axis=0)
+        y_pred = np.argmax(y_pred, axis=0) #제일 값이 큰 인덱스 값 계산
         if(y_pred==0):
             print("예측 : 음식")
         elif(y_pred==1):
