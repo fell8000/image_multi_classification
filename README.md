@@ -130,6 +130,9 @@ history를 moddelfit할때 저장하며 epochs를 20으로 줘 정확도를 높�
 colab의 경우 한 번 epoch을 돌린 후 부터는 진행속도가 매우 빨라지는 장점이 있음.
 
 
+<img width="400" src="https://user-images.githubusercontent.com/63782897/103302297-a74dec00-4a46-11eb-854b-c32576d00200.PNG">
+
+
 ```PYTHON
 def plot_loss_curve(history):
     plt.figure(figsize=(15, 10))
@@ -142,6 +145,7 @@ def plot_loss_curve(history):
     plt.show()
 ```
 
+<img width="200" src="https://user-images.githubusercontent.com/63782897/103302234-7ec5f200-4a46-11eb-9f46-f48db3601f70.PNG">
 
 ------------------------------------------------
 
@@ -256,5 +260,16 @@ def predict_image_sample(model, val_ds,num=-1):
 
 -----------------------------------
 
-## 결과
+## 이미지 예측 결과
 
+
+<img width="200" src="https://user-images.githubusercontent.com/63782897/103302383-dcf2d500-4a46-11eb-82b6-f1f880ed6204.png">
+<img width="200" src="https://user-images.githubusercontent.com/63782897/103302385-de240200-4a46-11eb-9ffa-8c7d0103fa21.png">
+
+맞는 결과
+
+
+<img width="200" src="https://user-images.githubusercontent.com/63782897/103302386-de240200-4a46-11eb-9f8c-2858da7f5db4.png">
+<img width="200" src="https://user-images.githubusercontent.com/63782897/103302388-debc9880-4a46-11eb-9a83-fbbc399b8b7c.png">
+
+틀린 결과
