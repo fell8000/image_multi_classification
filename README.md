@@ -2,7 +2,9 @@
 
 ## COLAB을 이용하여 크기가 큰 데이터를 불러와, KERAS를 이용한 이미지 분류와 예측
 
+
 ------------------------------------------------
+
 
 ### 전제조건
 >소스파일 위치에 images 폴더가 있어야함.
@@ -14,7 +16,9 @@
 >tf.keras.preprocessing.image_dataset_from_directory를 사용하기 위해 카테고리 별로 파일이 나눠져 있어야함 
 >>ex) images안 폴더 명 : food interior exterior
 
+
 -----------------------------------------------------
+
 
 ### 라이브러리 import
 
@@ -30,7 +34,9 @@ import tensorflow as tf
 from tensorflow.python.keras.callbacks import ModelCheckpoint
 ```
 
+
 --------------------------------------------------------
+
 
 ### COLAB을 이용한 이미지 전처리
 
@@ -62,11 +68,16 @@ from tensorflow.python.keras.callbacks import ModelCheckpoint
 
 ```
 tf.keras.preprocessing.image_dataset_from_directory를 이용,
+
 각각의 카테고리에서 정보들을 가져와 이미지 사이즈를 조정하고, label mode와 class_name으로 라벨의 개수를 multiple하게, 순서를 알파벳이 아닌 지정 순서로 변경한다.
+
 이것은 후의 테스트를 위한 작업이며 생략 가능하다.
+
 0.2만큼은 test를 위하여, 나머지 0.8만큼은 training을 위하여 이미지를 사용함.
 
+
 -------------------------------------------------
+
 
 ### 모델 생성
 
@@ -104,11 +115,19 @@ categories = ["food", "interior", "exterior"]
     print("train loss=", history.history['loss'][-1])
     print("validation loss=", history.history['val_loss'][-1])
 ```
+
 COLAB에 GPU를 사용하여 데이터처리를 빠르게 하기위하여 사용.
+
 CPU보다 CPU가 12배 정도의 속도가 이루어진다는 이야기 있음.
+
 RESCALING의 경우 이미지 파일이 0~1사이의 값을 가지는것이 LOSS가 줄어드는 방법이라 이용.
+
 3번의 CONV, MAXPOOLING의 과정을 거치며 저장됨.
+
 history를 moddelfit할때 저장하며 epochs를 20으로 줘 정확도를 높인다. 
+
 colab의 경우 한 번 epoch을 돌린 후 부터는 진행속도가 매우 빨라지는 장점이 있음.
 
+
 ------------------------------------------------
+
