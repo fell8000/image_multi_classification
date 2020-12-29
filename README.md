@@ -130,5 +130,131 @@ history를 moddelfit할때 저장하며 epochs를 20으로 줘 정확도를 높�
 colab의 경우 한 번 epoch을 돌린 후 부터는 진행속도가 매우 빨라지는 장점이 있음.
 
 
+```PYTHON
+def plot_loss_curve(history):
+    plt.figure(figsize=(15, 10))
+    plt.plot(history['loss'])
+    plt.plot(history['val_loss'])
+    plt.title('model loss')
+    plt.ylabel('loss')
+    plt.xlabel('epoch')
+    plt.legend(['train', 'test'], loc='upper right')
+    plt.show()
+```
+
+
 ------------------------------------------------
+
+
+
+
+### 모델 예측
+
+```PYTHON
+#모델 로드
+    model=load_model('./model-201711299')
+        
+
+
+    batch_size = 32
+    train_ds = tf.keras.preprocessing.image_dataset_from_directory(
+    './images',
+    validation_split=0.2,
+    subset="training",
+    seed=123,
+    image_size=(300, 300),
+    #batch_size=batch_size,
+    label_mode='categorical',
+    class_names=["food", "interior", "exterior"]
+    )
+    val_ds = tf.keras.preprocessing.image_dataset_from_directory(
+    './images',
+    validation_split=0.2,
+    subset="validation",
+    image_size=(300, 300),
+    seed=123,
+    #batch_size=batch_size,
+    label_mode='categorical',
+    class_names = ["food", "interior", "exterior"]
+    )
+    
+    #predict vs actual 32장씩 (batch size)
+    predict_image_sample(model, val_ds,2)
+```
+
+이미지 예측을 위한 함수를 생성하여 호출, 아까와 같은 방식으로 사진들을 가지고 온다.
+
+
+```PYTHON
+def predict_image_sample(model, val_ds,num=-1):
+    if num<0:
+        from random import randrange
+        test_sample_id = randrange(9000)
+        
+        
+    yy=[]
+    result=[]
+    target_name=["food","interior","exterior"]
+    img=[]
+    
+    
+    n=0
+    for x,y in val_ds: #32장 복사
+        if(n!=num): #입력된 num이 될때까지 진행
+            n+=1
+            continue
+        yy=y #y_actual
+        img=x #img
+        result=model.predict_on_batch(x) #y_predict batch 사이즈 만큼 predict함
+        from sklearn.metrics import classification_report
+        break
+    
+    
+    import cv2
+    img=np.array(img)
+    img/=255.0 #이미지 스케일링
+    
+    yy=np.array(yy)
+    result=np.array(result)
+    
+    
+    
+    
+    for i in range(32):
+        b, g, r = cv2.split(img[i])   # img파일을 b,g,r로 분리
+        img[i] = cv2.merge([r,g,b]) # b, r을 바꿔서 Merge cv2의 특성때문에 진행
+        cv2.imshow("g",img[i])
+        cv2.waitKey(0)
+        #test_image = img[i].reshape(1,300,300,3)
+        
+        y_actual = yy[i]
+        print("y_actual number=", y_actual)
+        if(y_actual[0]==1):
+            print("실제 : 음식")
+        elif(y_actual[1]==1):
+            print("실제 : 실내")
+        elif(y_actual[2]==1):
+            print("실제 : 실외")
+        
+        
+        y_pred = result[i]
+        print(y_pred)
+        y_pred = np.argmax(y_pred, axis=0)
+        if(y_pred==0):
+            print("예측 : 음식")
+        elif(y_pred==1):
+            print("예측 : 실내")
+        elif(y_pred==2):
+            print("예측 : 실외")
+
+```
+
+이미지 예측을 해보는 작업. 자세한 설명은 코드 주석으로 대신함.
+
+
+
+
+-----------------------------------
+
+## 결과
 
