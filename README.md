@@ -2,6 +2,7 @@
 
 ## COLAB을 이용하여 크기가 큰 데이터를 불러와, KERAS를 이용한 이미지 분류와 예측
 
+------------------------------------------------
 
 ### 전제조건
 >소스파일 위치에 images 폴더가 있어야함.
@@ -13,6 +14,7 @@
 >tf.keras.preprocessing.image_dataset_from_directory를 사용하기 위해 카테고리 별로 파일이 나눠져 있어야함 
 >>ex) images안 폴더 명 : food interior exterior
 
+-----------------------------------------------------
 
 ### 라이브러리 import
 
@@ -28,6 +30,7 @@ import tensorflow as tf
 from tensorflow.python.keras.callbacks import ModelCheckpoint
 ```
 
+--------------------------------------------------------
 
 ### COLAB을 이용한 이미지 전처리
 
@@ -63,6 +66,7 @@ tf.keras.preprocessing.image_dataset_from_directory를 이용,
 이것은 후의 테스트를 위한 작업이며 생략 가능하다.
 0.2만큼은 test를 위하여, 나머지 0.8만큼은 training을 위하여 이미지를 사용함.
 
+-------------------------------------------------
 
 ### 모델 생성
 
@@ -107,4 +111,4 @@ RESCALING의 경우 이미지 파일이 0~1사이의 값을 가지는것이 LOSS
 history를 moddelfit할때 저장하며 epochs를 20으로 줘 정확도를 높인다. 
 colab의 경우 한 번 epoch을 돌린 후 부터는 진행속도가 매우 빨라지는 장점이 있음.
 
-
+------------------------------------------------
