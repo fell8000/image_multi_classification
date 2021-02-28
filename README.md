@@ -1,7 +1,8 @@
 # image_multi_classification
 
-## COLAB을 이용하여 크기가 큰 데이터를 불러와, KERAS를 이용한 이미지 분류와 예측
+## COLAB을 이용하여 크기가 큰 데이터를 불러와, TENSORFLOW와 KERAS를 이용한 이미지 분류와 예측
 
+## 정확도 89%
 
 
 ------------------------------------------------
@@ -15,7 +16,8 @@
 >google drive에서 colab으로 마운트 하는과정은 인터넷을 참조 바람.
 
 >tf.keras.preprocessing.image_dataset_from_directory를 사용하기 위해 카테고리 별로 파일이 나눠져 있어야함 
->>ex) images안 폴더 명 : food interior exterior
+>>ex) images안 폴더 명 : food / interior / exterior
+
 
 
 -----------------------------------------------------
